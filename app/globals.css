@@ -1,27 +1,26 @@
+/* Include this code in your project's CSS file, such as globals.css */
+
+/* Reset Tailwind CSS styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom CSS variables */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0; /* Default foreground color */
+  --background-rgb: 255, 255, 255; /* Set to a fully white background color */
 }
 
-@media (prefers-color-scheme: dark) {
+/* Media query for light mode (you can adjust the values as needed) */
+@media (prefers-color-scheme: light) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 255, 255, 255; /* Light mode foreground color */
+    --background-rgb: 20, 20, 20; /* Set a darker background color for light mode */
   }
 }
 
+/* Apply the custom colors to body */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: rgb(var(--foreground-rgb)); /* Text color based on the custom foreground color */
+  background: rgb(var(--background-rgb)); /* Background color based on the custom background color */
 }
