@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+README for Chat Application
+This README provides an overview of the code for a chat application that integrates an AI-powered chatbot for assisting with math equations. This application consists of two parts: the server-side code and the client-side code. It allows users to interact with the AI chatbot and receive assistance with math problems.
 
-## Getting Started
+Server-Side Code
+The server-side code is responsible for handling user requests and integrating the AI chatbot. It uses the Next.js framework for server-side rendering and streaming responses.
 
-First, run the development server:
+Dependencies
+NextRequest: This module handles requests in the Next.js framework.
+ai: This module provides utilities for dealing with responses and streaming data.
+langchain/chat_models/openai: This module contains the chat model for OpenAI.
+langchain/schema/output_parser: This module is used for parsing output from the chatbot.
+langchain/prompts: It contains the prompt template for the chatbot.
+Functionality
+The key functionalities of the server-side code include:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Formatting messages: The formatMessage function takes a message and formats it for input into the chat model.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Prompt Template: A template is defined for the conversation. It sets the context for the chatbot as a math tutor named Molly. The template is designed to guide Molly in assisting the user with math equations.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+POST Request Handler: The POST function handles incoming requests. It extracts messages from the request body, formats previous messages, and extracts the current message content. It then initializes the chat model, sets up the message chain with the prompt, model, and output parser, and streams the conversation responses.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Usage
+To use the server-side code, you need to send a POST request with a JSON body containing the messages. The server will respond with streaming chat responses from the AI chatbot.
 
-## Learn More
+Client-Side Code
+The client-side code is a React component that provides a user interface for interacting with the AI chatbot. It allows users to input messages, send them to the server, and display the chat history.
 
-To learn more about Next.js, take a look at the following resources:
+Dependencies
+react: The React library is used to build the user interface.
+ai/react: This module provides hooks for managing chat state and user interactions.
+Functionality
+The client-side code includes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Chat Interface: The user interface displays a chat area where messages are shown, with user messages aligned to the right and AI responses to the left. It also includes an input field for users to type their messages.
